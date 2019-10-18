@@ -1,0 +1,1 @@
+This console converts any file put into the folder /Files/Input to Base64 string and saves it in the folder /Files/Output with the same filename and .txt extension
