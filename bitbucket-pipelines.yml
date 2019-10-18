@@ -1,0 +1,15 @@
+image: microsoft/dotnet:sdk
+
+stepdefinitions:
+  - build: &build
+      name: Building
+      caches:
+        - dotnetcore
+      script:
+        - dotnet restore "./FileToBase64/FileToBase64.csproj"
+        - dotnet build "./FileToBase64/FileToBase64.csprod" -c Release
+pipelines:
+  default:
+    - step: *build
+  master:
+    - step: *build
