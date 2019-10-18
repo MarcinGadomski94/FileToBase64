@@ -7,9 +7,15 @@
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Files\Input" />
-      <Folder Include="Files\Output" />
-    </ItemGroup>
-
+    <Target Name="MakeFilesDir" AfterTargets="Build">
+        <MakeDir Directories="$(OutDir)Files"></MakeDir>
+        <MakeDir Directories="$(OutDir)/Files/Input"></MakeDir>
+        <MakeDir Directories="$(OutDir)/Files/Output"></MakeDir>
+    </Target>
+    
+    <Target Name="CleanFilesDir" AfterTargets="Clean">
+        <RemoveDir Directories="$(OutDir)Files"></RemoveDir>
+        <RemoveDir Directories="$(OutDir)/Files/Input"></RemoveDir>
+        <RemoveDir Directories="$(OutDir)/Files/Output"></RemoveDir>
+    </Target>
 </Project>
